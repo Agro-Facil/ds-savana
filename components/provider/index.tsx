@@ -1,4 +1,4 @@
-import { ReactNode, createContext } from 'react';
+import React, { ReactNode, createContext } from 'react';
 
 type HexadecimalType = `#${string}`
 
@@ -224,11 +224,32 @@ const defaultTheme: ITheme = {
   }
 }
 
+const mergeObject = (target: ITheme, source: Partial<ITheme>): ITheme => {
+  const isObject = (obj: any) => obj && typeof obj === 'object';
+
+  return Object.keys({ ...target, ...source }).reduce((acc, key) => {
+    const targetValue = (target as any)[key];
+    const sourceValue = (source as any)[key];
+
+    if (Array.isArray(targetValue) && Array.isArray(sourceValue)) {
+      (acc as any)[key] = [...targetValue, ...sourceValue];
+    } else if (isObject(targetValue) && isObject(sourceValue)) {
+      (acc as any)[key] = mergeObject(targetValue, sourceValue);
+    } else {
+      (acc as any)[key] = sourceValue === undefined ? targetValue : sourceValue;
+    }
+
+    return acc;
+  }, { ...target });
+};
+
 export const ContextTheme = createContext(defaultTheme);
 
-export const SavanaProvider = ({ config, children }: { config: ITheme, children: ReactNode }) => {
+export const SavanaProvider: React.FC<{ config?: ITheme; children: ReactNode }> = ({ config, children }): JSX.Element => {
+  const currentTheme = mergeObject(defaultTheme, config ?? {})
+
   return (
-    <ContextTheme.Provider value={config}>
+    <ContextTheme.Provider value={currentTheme}>
       {children}
     </ContextTheme.Provider>
   );

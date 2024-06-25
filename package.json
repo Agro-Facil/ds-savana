@@ -6,7 +6,7 @@
   "types": "dist/index.d.ts",
   "author": "Desenvolvedor Savana",
   "files": [
-    "dist",
+    "dist/*",
     "README.md"
   ],
   "publishConfig": {
@@ -14,10 +14,11 @@
   },
   "scripts": {
     "clean": "rm -rf dist",
-    "build:babel": "babel src --extensions \".js,.jsx,.ts,.tsx\" --out-dir dist --copy-files",
+    "build:babel": "babel components --extensions \".js,.jsx,.ts,.tsx\" --out-dir dist --copy-files",
     "build:types": "tsc",
     "build": "npm run clean && npm run build:babel && npm run build:types",
     "android": "npx tsc && npx expo run:android",
+
     "ios": "npx tsc && npx expo run:ios",
     "lint": "npx prettier --write . && npx eslint ."
   },

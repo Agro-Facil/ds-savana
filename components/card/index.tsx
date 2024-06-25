@@ -1,9 +1,9 @@
-import { useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 import { View, Text, Pressable } from "react-native"
 import { styles } from "./styles"
 import { ContextTheme } from "../provider";
 
-export const Card = () => {
+export const Card = (): JSX.Element => {
   const config = useContext(ContextTheme);
   const [count, setCount] = useState(0)
 
@@ -15,3 +15,5 @@ export const Card = () => {
     </View>
   )
 }
+
+export default Card
