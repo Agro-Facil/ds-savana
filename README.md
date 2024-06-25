@@ -19,13 +19,13 @@ Você pode instalar o Savana Design System via npm ou yarn.
 #### npm
 
 ```bash
-npm install @savana/ui
+npm install ds-savana
 ```
 
 #### yarn
 
 ```bash
-yarn add @savana/ui
+yarn add ds-savana
 ```
 
 ### Uso

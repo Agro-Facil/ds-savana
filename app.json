@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "savana/ui",
-    "slug": "savana/ui",
+    "name": "ds-savana",
+    "slug": "ds-savana",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
