@@ -1,6 +1,6 @@
 {
   "name": "@savana/ui",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Savana Design System - A unified collection of reusable components, design patterns, and guidelines to ensure consistency and efficiency in all Savana's digital products.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
