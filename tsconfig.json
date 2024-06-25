@@ -12,6 +12,7 @@
     "skipLibCheck": true
   },
   "include": [
+    "components",
     ".expo/types/**/*.ts",
     "expo-env.d.ts"
   ],
