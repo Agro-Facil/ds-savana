@@ -1,5 +1,6 @@
 import { Tabs } from 'expo-router';
 import React from 'react';
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 export default function TabLayout() {
   return (
@@ -11,13 +12,10 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home'
-        }}
-      />
-      <Tabs.Screen
-        name="explore"
-        options={{
-          title: 'Explore'
+          title: 'Components',
+          tabBarIcon: ({ color }) => (
+            <Ionicons name="logo-web-component" size={24} color={color} />
+          )
         }}
       />
     </Tabs>
