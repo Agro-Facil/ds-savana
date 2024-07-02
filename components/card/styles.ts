@@ -7,6 +7,7 @@ export const styles = (config: ITheme) => StyleSheet.create({
     justifyContent: 'center',
     borderColor: config.colors.primary,
     minHeight: 200,
+    minWidth: config.space['5/6'],
     margin: 16,
     borderRadius: 16,
     borderWidth: 1,

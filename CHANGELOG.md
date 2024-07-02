@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.0] - 2024-07-02
+
+### Added
+
+- Component Button
+- Component TextField
+- Component Link
+- Component Divider
+- Component Checkbox
+
 ## [1.0.4] - 2024-06-26
 
 ### Fixed
