@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Pressable, Text, View, StyleSheet, ScrollView, FlatList } from 'react-native';
-import { Button, Card, TextField, Checkbox, Link, Divider } from '../../src/index'
+import { Button, Card, TextField, Checkbox, Link, Divider, VStack } from '../../src/index'
 import { Home, HomeIcon } from 'lucide-react-native';
 
 export default function TabTwoScreen() {
-  const components = ['Button', 'Card', 'TextField', 'Checkbox', 'Link', 'Divider']
+  const components = ['Button', 'Card', 'TextField', 'Checkbox', 'Link', 'Divider', 'VStack']
   const [component, setComponent] = useState('Button')
 
   return (
@@ -107,6 +107,18 @@ export default function TabTwoScreen() {
             <>
               <Divider />
               <Divider label='Ou entre com' />
+            </>
+          )}
+          {component === 'VStack' && (
+            <>
+              <VStack space='xl'>
+                <Button size='full'>
+                  Salvar
+                </Button>
+                <Button size='full'>
+                  Salvar
+                </Button>
+              </VStack>
             </>
           )}
         </View>
