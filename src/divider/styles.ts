@@ -18,7 +18,7 @@ export const DividerStyles = (theme: DefaultTheme | ITheme) => StyleSheet.create
   },
   label: {
     fontFamily: theme.fonts.body,
-    fontSize: theme.fontSizes.lg,
+    fontSize: theme.fontSizes.md,
     marginHorizontal: theme.space[2]
   }
 })
