@@ -15,7 +15,7 @@
   },
   "scripts": {
     "clean": "rm -rf dist",
-    "build:babel": "babel components --extensions \".js,.jsx,.ts,.tsx\" --out-dir dist --copy-files",
+    "build:babel": "babel src --extensions \".js,.jsx,.ts,.tsx\" --out-dir dist --copy-files",
     "build:types": "tsc",
     "build": "sh scripts/build.sh",
     "package": "npm run clean && npm run build:babel && npm run build:types",

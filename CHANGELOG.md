@@ -7,15 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.0] - 2024-07-03
+
+### Added
+
+- Action social in button component
+- Sx in divider component
+
 ## [1.1.0] - 2024-07-02
 
 ### Added
 
-- Component Button
-- Component TextField
-- Component Link
-- Component Divider
-- Component Checkbox
+- Button Component
+- TextField Component
+- Link Component
+- Divider Component
+- Checkbox Component
 
 ## [1.0.4] - 2024-06-26
 

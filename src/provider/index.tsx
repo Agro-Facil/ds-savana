@@ -26,6 +26,7 @@ export interface ITheme {
     tertiaryDark?: HexadecimalType
     grayLight?: HexadecimalType
     gray?: HexadecimalType
+    grayDark?: HexadecimalType
     errorLight?: HexadecimalType
     error?: HexadecimalType
     errorDark?: HexadecimalType
@@ -38,6 +39,7 @@ export interface ITheme {
     infoLight?: HexadecimalType
     info?: HexadecimalType
     infoDark?: HexadecimalType
+    paletteBlue?: HexadecimalType
   },
   space: Record<StringOrNumber, Percentage | number>
   borderWidths: Record<StringOrNumber, number>
@@ -70,8 +72,9 @@ export const defaultTheme = {
     tertiaryLight: '#e0e4e3',
     tertiary: '#b7c0bc',
     tertiaryDark: '#8b928f',
-    grayLight: '#e1e1e1',
+    grayLight: '#b1b1b1',
     gray: '#686763',
+    grayDark: '#4F4F4F',
     errorLight: '#ff76764a',
     error: '#D84848',
     errorDark: '#a83232',
@@ -83,7 +86,8 @@ export const defaultTheme = {
     successDark: '#1d9a41',
     infoLight: '#6ac7ff4a',
     info: '#0ea5e9',
-    infoDark: '#0b7ba3'
+    infoDark: '#0b7ba3',
+    paletteBlue: '#2d9cdb'
   },
   space: {
     0: 0,
@@ -150,11 +154,12 @@ export const defaultTheme = {
     'sm': 4,
     'md': 6,
     'lg': 8,
-    'xl': 12,
-    '2xl': 16,
-    '3xl': 20,
-    '4xl': 24,
-    '5xl': 32,
+    'xl': 10,
+    '2xl': 12,
+    '3xl': 14,
+    '4xl': 16,
+    '5xl': 20,
+    '6xl': 24,
     'full': 9999,
   },
   breakpoints: {
@@ -261,7 +266,7 @@ const mergeObject = (target: ITheme, source: Partial<ITheme>): ITheme => {
 
 export const ContextTheme = createContext(defaultTheme as ITheme);
 
-export const SavanaProvider: React.FC<{ config?: ITheme; children: ReactNode }> = ({ config, children }): JSX.Element => {
+export const SavanaProvider: React.FC<{ config?: Partial<ITheme>; children: ReactNode }> = ({ config, children }): JSX.Element => {
   const currentTheme = mergeObject(defaultTheme as ITheme, config ?? {})
 
   return (

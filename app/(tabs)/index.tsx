@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Pressable, Text, View, StyleSheet, ScrollView, FlatList } from 'react-native';
-import { Button, Card, TextField, Checkbox, Link, Divider } from '../../components/index'
+import { Button, Card, TextField, Checkbox, Link, Divider } from '../../src/index'
+import { Home, HomeIcon } from 'lucide-react-native';
 
 export default function TabTwoScreen() {
   const components = ['Button', 'Card', 'TextField', 'Checkbox', 'Link', 'Divider']
@@ -29,6 +30,45 @@ export default function TabTwoScreen() {
               </Button>
               <View style={{ height: 12 }} />
               <Button size='full'>
+                Salvar
+              </Button>
+              <View style={{ height: 12 }} />
+              <Button size='full' variant='solid' action='error'>
+                Salvar
+              </Button>
+              <View style={{ height: 12 }} />
+              <Button size='full' variant='solid' action='google'>
+                Salvar
+              </Button>
+              <View style={{ height: 12 }} />
+              <Button size='full' variant='solid' action='facebook'>
+                Facebook
+              </Button>
+              <View style={{ height: 12 }} />
+              <Button size='full' variant='outline' action='google'>
+                Salvar
+              </Button>
+              <View style={{ height: 12 }} />
+              <Button size='full' variant='outline' action='facebook'>
+                Salvar
+              </Button>
+              <View style={{ height: 12 }} />
+              <Button
+                size='full'
+                icons={[
+                  <HomeIcon color='white' />,
+                  <HomeIcon color='white' />
+                ]}
+              >
+                Salvar
+              </Button>
+              <View style={{ height: 12 }} />
+              <Button
+                size='full'
+                icons={[
+                  <HomeIcon color='white' />
+                ]}
+              >
                 Salvar
               </Button>
             </>
