@@ -2,7 +2,7 @@
   "name": "@savana-tech/ui",
   "version": "1.3.0",
   "description": "Savana Design System - A unified collection of reusable components, design patterns, and guidelines to ensure consistency and efficiency in all Savana's digital products.",
-  "main": "dist/index.js",
+  "main": "expo-router/entry",
   "types": "dist/index.d.ts",
   "author": "Desenvolvedor Savana",
   "files": [
@@ -20,6 +20,7 @@
     "build": "sh scripts/build.sh",
     "package": "npm run clean && npm run build:babel && npm run build:types",
     "android": "npx tsc && npx expo run:android",
+    "web": "npx tsc && npx expo start --web",
     "ios": "npx tsc && npx expo run:ios",
     "lint": "npx prettier --write . && npx eslint ."
   },

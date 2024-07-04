@@ -4,5 +4,6 @@ export { default as Checkbox } from './checkbox';
 export { default as Card } from './card';
 export { default as Link } from './link';
 export { default as VStack } from './vstack';
+export { default as HStack } from './hstack';
 export { default as Divider } from './divider';
-export { default as SavanaProvider } from './provider';
+export { default as SavanaProvider, default as ITheme } from './provider';

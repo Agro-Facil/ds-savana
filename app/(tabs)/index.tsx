@@ -1,10 +1,19 @@
 import React, { useState } from 'react';
 import { Pressable, Text, View, StyleSheet, ScrollView, FlatList } from 'react-native';
-import { Button, Card, TextField, Checkbox, Link, Divider, VStack } from '../../src/index'
-import { Home, HomeIcon } from 'lucide-react-native';
+import { Button, Card, TextField, Checkbox, Link, Divider, VStack, HStack } from '../../src/index'
+import { HomeIcon } from 'lucide-react-native';
 
 export default function TabTwoScreen() {
-  const components = ['Button', 'Card', 'TextField', 'Checkbox', 'Link', 'Divider', 'VStack']
+  const components = [
+    'Button',
+    'Card',
+    'TextField',
+    'Checkbox',
+    'Link',
+    'Divider',
+    'VStack',
+    'HStack'
+  ]
   const [component, setComponent] = useState('Button')
 
   return (
@@ -111,7 +120,7 @@ export default function TabTwoScreen() {
           )}
           {component === 'VStack' && (
             <>
-              <VStack space='xl'>
+              <VStack space='xl' sx={{ borderColor: 'red', borderWidth: 1 }}>
                 <Button size='full'>
                   Salvar
                 </Button>
@@ -119,6 +128,18 @@ export default function TabTwoScreen() {
                   Salvar
                 </Button>
               </VStack>
+            </>
+          )}
+          {component === 'HStack' && (
+            <>
+              <HStack space='xl' sx={{ borderColor: 'red', borderWidth: 1 }}>
+                <Button size='xs'>
+                  Salvar
+                </Button>
+                <Button size='xs'>
+                  Salvar
+                </Button>
+              </HStack>
             </>
           )}
         </View>

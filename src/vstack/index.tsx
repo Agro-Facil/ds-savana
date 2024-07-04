@@ -1,4 +1,4 @@
-import { Children, PropsWithChildren, useContext } from "react";
+import { Children, Fragment, PropsWithChildren, useContext } from "react";
 import { View, StyleProp, ViewStyle } from "react-native"
 import { styles } from "./styles"
 import { ContextTheme } from "../provider";
@@ -28,11 +28,11 @@ export const VStack = ({ children, sx, space = 'xs', splitted = false }: PropsWi
         const currentSpace = spaces[space as keyof typeof spaces]
         if (index < Children.toArray(children)?.length - 1 || splitted) {
           return (
-            <>
+            <Fragment key={`${index}`}>
               {splitted && <View style={{ height: (currentSpace / 2) }} />}
               {child}
               <View style={{ height: splitted ? (currentSpace / 2) : currentSpace }} />
-            </>
+            </Fragment>
           )
         }
 

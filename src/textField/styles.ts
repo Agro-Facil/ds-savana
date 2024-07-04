@@ -4,8 +4,7 @@ import { ITheme } from '../provider';
 
 export const TextFieldStyles = (theme: DefaultTheme | ITheme) => StyleSheet.create({
   container: {
-    width: theme.space.full,
-    padding: theme.space[6]
+    width: theme.space.full
   },
   label: {
     color: theme.colors.gray,
