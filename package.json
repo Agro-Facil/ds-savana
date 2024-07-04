@@ -1,6 +1,6 @@
 {
   "name": "@savana-tech/ui",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Savana Design System - A unified collection of reusable components, design patterns, and guidelines to ensure consistency and efficiency in all Savana's digital products.",
   "main": "expo-router/entry",
   "types": "dist/index.d.ts",
