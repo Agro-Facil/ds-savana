@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.5.0] - 2024-07-06
+
+### Added
+
+- New size in Button component
+
+## [1.4.1] - 2024-07-04
+
+### Fixed
+
+- Rebuild
+
 ## [1.4.0] - 2024-07-04
 
 ### Added

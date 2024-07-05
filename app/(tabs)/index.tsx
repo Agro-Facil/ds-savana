@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Pressable, Text, View, StyleSheet, ScrollView, FlatList } from 'react-native';
 import { Button, Card, TextField, Checkbox, Link, Divider, VStack, HStack } from '../../src/index'
-import { HomeIcon } from 'lucide-react-native';
+import { ArrowLeft, ChevronLeft, HomeIcon } from 'lucide-react-native';
 
 export default function TabTwoScreen() {
   const components = [
@@ -22,6 +22,7 @@ export default function TabTwoScreen() {
         <View style={styles.view}>
           {component === 'Button' && (
             <>
+              <Button size='xxs' icons={[<ChevronLeft color='white' />]} />
               <Button size='xs' variant='outline' isDisabled={true} onPress={() => console.log('ola')}>
                 Salvar
               </Button>
@@ -132,7 +133,7 @@ export default function TabTwoScreen() {
           )}
           {component === 'HStack' && (
             <>
-              <HStack space='xl' sx={{ borderColor: 'red', borderWidth: 1 }}>
+              <HStack sx={{ borderColor: 'red', borderWidth: 1 }}>
                 <Button size='xs'>
                   Salvar
                 </Button>

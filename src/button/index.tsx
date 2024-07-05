@@ -5,7 +5,7 @@ import { ContextTheme } from "../provider";
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 
 export interface ButtonProps extends PressableProps {
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'full'
+  size?: 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'full'
   variant?: 'solid' | 'outline'
   icons?: React.ReactNode[]
   action?: 'primary' | 'secondary' | 'success' | 'error' | 'google' | 'facebook' | 'apple'
@@ -16,7 +16,7 @@ export interface ButtonProps extends PressableProps {
 
 export const Button = ({ size = 'full', variant = 'solid', icons, action = 'primary', sx, childrenSx, isDisabled, children, ...props }: PropsWithChildren<ButtonProps>): JSX.Element => {
   const config = useContext(ContextTheme);
-  const styles = ButtonStyles(config)
+  const styles = ButtonStyles/* (config) */
   const textStyles = ButtonTextStyles(config)
   const hasIcon = (action !== 'facebook' && action !== 'google') && icons
 
@@ -29,7 +29,8 @@ export const Button = ({ size = 'full', variant = 'solid', icons, action = 'prim
         styles[size],
         styles[`${variant}-${action}` as keyof typeof styles],
         isDisabled && styles.disabled,
-        hasIcon && styles.hasIcon,
+        hasIcon && !!children && styles.hasIcon,
+        hasIcon && !children && styles.hasIconWithoutChildren,
         sx
       ]}
     >
@@ -47,7 +48,7 @@ export const Button = ({ size = 'full', variant = 'solid', icons, action = 'prim
           {children}
         </Text>
       )}
-      {hasIcon && (icons.length > 1 ? icons[1] : <View style={{ width: 24, height: 24 }} />)}
+      {children && hasIcon && (icons.length > 1 ? icons[1] : <View style={{ width: 24, height: 24 }} />)}
       {(action === 'facebook' || action === 'google') && <View style={{ width: 24, height: 24 }} />}
     </RNPressable>
   )

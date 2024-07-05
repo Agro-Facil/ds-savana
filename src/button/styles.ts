@@ -2,13 +2,17 @@ import { DefaultTheme, defaultTheme as config } from './../provider/index';
 import { StyleSheet } from 'react-native';
 import { ITheme } from './../provider';
 
-export const ButtonStyles = (config: DefaultTheme | ITheme) => StyleSheet.create({
+export const ButtonStyles = /* (config: DefaultTheme | ITheme) =>  */StyleSheet.create({
   container: {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: config.radii.xl,
     borderWidth: config.borderWidths[1]
+  },
+  xxs: {
+    borderRadius: config.radii.lg,
+    padding: config.space[1],
   },
   xs: {
     padding: config.space[6],
@@ -87,6 +91,9 @@ export const ButtonStyles = (config: DefaultTheme | ITheme) => StyleSheet.create
   },
   hasIcon: {
     justifyContent: 'space-between',
+  },
+  hasIconWithoutChildren: {
+    justifyContent: 'center',
   }
 });
 
