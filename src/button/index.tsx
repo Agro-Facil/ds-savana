@@ -16,7 +16,7 @@ export interface ButtonProps extends PressableProps {
 
 export const Button = ({ size = 'full', variant = 'solid', icons, action = 'primary', sx, childrenSx, isDisabled, children, ...props }: PropsWithChildren<ButtonProps>): JSX.Element => {
   const config = useContext(ContextTheme);
-  const styles = ButtonStyles/* (config) */
+  const styles = ButtonStyles(config)
   const textStyles = ButtonTextStyles(config)
   const hasIcon = (action !== 'facebook' && action !== 'google') && icons
 

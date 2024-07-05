@@ -2,7 +2,7 @@ import { DefaultTheme, defaultTheme as config } from './../provider/index';
 import { StyleSheet } from 'react-native';
 import { ITheme } from './../provider';
 
-export const ButtonStyles = /* (config: DefaultTheme | ITheme) =>  */StyleSheet.create({
+export const ButtonStyles = (config: DefaultTheme | ITheme) => StyleSheet.create({
   container: {
     flexDirection: 'row',
     justifyContent: 'center',
