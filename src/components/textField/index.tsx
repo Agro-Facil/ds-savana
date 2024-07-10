@@ -1,8 +1,9 @@
 import React, { PropsWithChildren, useContext, useRef, useState } from "react";
-import { Text, TextInput as RNTextInput, TextInputProps, View, Pressable } from "react-native"
+import { TextInput as RNTextInput, TextInputProps, View, Pressable } from "react-native"
 import { TextFieldStyles } from "./styles"
-import { ContextTheme } from "../provider";
+import { ContextTheme } from "../../provider";
 import { Eye, EyeOff } from 'lucide-react-native'
+import { Text } from './../text'
 
 export interface TextFieldProps extends TextInputProps {
   label?: string

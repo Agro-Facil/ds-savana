@@ -1,6 +1,6 @@
-import { DefaultTheme, defaultTheme as config } from './../provider/index';
+import { DefaultTheme, defaultTheme as config } from '../../provider/index';
 import { StyleSheet } from 'react-native';
-import { ITheme } from './../provider';
+import { ITheme } from '../../provider';
 
 export const ButtonStyles = (config: DefaultTheme | ITheme) => StyleSheet.create({
   container: {

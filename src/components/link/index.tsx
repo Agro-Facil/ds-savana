@@ -1,7 +1,7 @@
 import React, { PropsWithChildren, useContext } from "react";
-import { Text, TextProps } from "react-native";
 import { LinkStyles } from "./styles";
-import { ContextTheme } from "../provider";
+import { ContextTheme } from "../../provider";
+import { Text, TextProps } from './../text'
 
 export interface LinkProps extends TextProps {
   isUnderline?: boolean

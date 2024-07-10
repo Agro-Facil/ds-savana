@@ -1,8 +1,9 @@
 import React, { PropsWithChildren, useContext, useState } from "react";
-import { ContextTheme } from "../provider";
+import { ContextTheme } from "../../provider";
 import { CheckboxStyles } from "./styles";
-import { Pressable, View, Text } from "react-native";
+import { Pressable, View } from "react-native";
 import { Check } from "lucide-react-native";
+import { Text } from './../text'
 
 export interface CheckboxProps {
   label?: string

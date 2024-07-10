@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
-import { StyleProp, Text, View, ViewStyle } from "react-native";
+import { StyleProp, View, ViewStyle } from "react-native";
 import { DividerStyles } from "./styles";
-import { ContextTheme } from "../provider";
+import { ContextTheme } from "../../provider";
+import { Text } from './../text'
 
 export interface DividerProps {
   label?: string

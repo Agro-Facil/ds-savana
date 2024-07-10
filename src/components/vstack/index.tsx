@@ -1,7 +1,7 @@
 import { Children, Fragment, PropsWithChildren, useContext } from "react";
 import { View, StyleProp, ViewStyle } from "react-native"
 import { styles } from "./styles"
-import { ContextTheme } from "../provider";
+import { ContextTheme } from "../../provider";
 
 interface VStackProps {
   space?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl'

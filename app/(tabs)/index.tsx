@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Pressable, Text, View, StyleSheet, ScrollView, FlatList } from 'react-native';
-import { Button, Card, TextField, Checkbox, Link, Divider, VStack, HStack } from '../../src/index'
-import { ArrowLeft, ChevronLeft, HomeIcon } from 'lucide-react-native';
+import { Pressable, View, StyleSheet, ScrollView, FlatList } from 'react-native';
+import { Heading, Text, Button, Card, TextField, Checkbox, Link, Pill, Divider, VStack, HStack, AccordionItem, Accordion } from '../../src/index'
+import { ChevronLeft, HomeIcon } from 'lucide-react-native';
+import { defaultTheme } from '../../src/provider';
 
 export default function TabTwoScreen() {
   const components = [
@@ -12,7 +13,12 @@ export default function TabTwoScreen() {
     'Link',
     'Divider',
     'VStack',
-    'HStack'
+    'HStack',
+    'AccordionItem',
+    'Accordion',
+    'Text',
+    'Heading',
+    'Pill'
   ]
   const [component, setComponent] = useState('Button')
 
@@ -23,6 +29,7 @@ export default function TabTwoScreen() {
           {component === 'Button' && (
             <>
               <Button size='xxs' icons={[<ChevronLeft color='white' />]} />
+              <View style={{ height: 12 }} />
               <Button size='xs' variant='outline' isDisabled={true} onPress={() => console.log('ola')}>
                 Salvar
               </Button>
@@ -84,7 +91,11 @@ export default function TabTwoScreen() {
             </>
           )}
           {component === 'Card' && (
-            <Card />
+            <View style={{ height: 500, width: 400, backgroundColor: 'gray' }}>
+              <Card>
+                <Text>teste</Text>
+              </Card>
+            </View>
           )}
           {component === 'TextField' && (
             <>
@@ -119,6 +130,40 @@ export default function TabTwoScreen() {
               <Divider label='Ou entre com' />
             </>
           )}
+          {component === 'AccordionItem' && (
+            <>
+              <AccordionItem
+                title='Sobre nós'
+                icon={<HomeIcon color={defaultTheme.colors.secondary} />}
+              >
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in faucibus massa. Aenean eu nisi quam. Donec quis eros vel est mattis convallis. Suspendisse tempor ex eget pharetra aliquet. Cras dignissim sed dui non dictum. Aliquam elit libero, sagittis at accumsan non, eleifend id ex. Curabitur ut erat et risus scelerisque bibendum. Maecenas eleifend tortor eget augue auctor, sit amet rhoncus dui sagittis. Nullam id libero euismod, euismod odio ac, vehicula purus. Vivamus rhoncus purus auctor, maximus ligula quis, mattis lacus.
+              </AccordionItem>
+            </>
+          )}
+          {component === 'Accordion' && (
+            <>
+              <Accordion>
+                <AccordionItem
+                  title='Sobre nós'
+                  icon={<HomeIcon color={defaultTheme.colors.secondary} />}
+                >
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in faucibus massa. Aenean eu nisi quam. Donec quis eros vel est mattis convallis. Suspendisse tempor ex eget pharetra aliquet. Cras dignissim sed dui non dictum. Aliquam elit libero, sagittis at accumsan non, eleifend id ex. Curabitur ut erat et risus scelerisque bibendum. Maecenas eleifend tortor eget augue auctor, sit amet rhoncus dui sagittis. Nullam id libero euismod, euismod odio ac, vehicula purus. Vivamus rhoncus purus auctor, maximus ligula quis, mattis lacus.
+                </AccordionItem>
+                <AccordionItem
+                  title='Sobre nós'
+                  icon={<HomeIcon color={defaultTheme.colors.secondary} />}
+                >
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in faucibus massa. Aenean eu nisi quam. Donec quis eros vel est mattis convallis. Suspendisse tempor ex eget pharetra aliquet. Cras dignissim sed dui non dictum. Aliquam elit libero, sagittis at accumsan non, eleifend id ex. Curabitur ut erat et risus scelerisque bibendum. Maecenas eleifend tortor eget augue auctor, sit amet rhoncus dui sagittis. Nullam id libero euismod, euismod odio ac, vehicula purus. Vivamus rhoncus purus auctor, maximus ligula quis, mattis lacus.
+                </AccordionItem>
+                <AccordionItem
+                  title='Sobre nós'
+                  icon={<HomeIcon color={defaultTheme.colors.secondary} />}
+                >
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in faucibus massa. Aenean eu nisi quam. Donec quis eros vel est mattis convallis. Suspendisse tempor ex eget pharetra aliquet. Cras dignissim sed dui non dictum. Aliquam elit libero, sagittis at accumsan non, eleifend id ex. Curabitur ut erat et risus scelerisque bibendum. Maecenas eleifend tortor eget augue auctor, sit amet rhoncus dui sagittis. Nullam id libero euismod, euismod odio ac, vehicula purus. Vivamus rhoncus purus auctor, maximus ligula quis, mattis lacus.
+                </AccordionItem>
+              </Accordion>
+            </>
+          )}
           {component === 'VStack' && (
             <>
               <VStack space='xl' sx={{ borderColor: 'red', borderWidth: 1 }}>
@@ -143,16 +188,72 @@ export default function TabTwoScreen() {
               </HStack>
             </>
           )}
+          {component === 'Text' && (
+            <>
+              <Text size='sm'>
+                teste
+              </Text>
+              <Text size='md'>
+                teste
+              </Text>
+              <Text size='lg'>
+                teste
+              </Text>
+              <Text size='xl'>
+                teste
+              </Text>
+            </>
+          )}
+          {component === 'Heading' && (
+            <>
+              <Heading size='sm'>
+                teste
+              </Heading>
+              <Heading size='md'>
+                teste
+              </Heading>
+              <Heading size='lg'>
+                teste
+              </Heading>
+              <Heading size='xl'>
+                teste
+              </Heading>
+            </>
+          )}
+          {component === 'Pill' && (
+            <>
+              <Pill>
+                Concluído
+              </Pill>
+              <View style={{ height: 12 }} />
+              <Pill color='error'>
+                Indeferido
+              </Pill>
+              <View style={{ height: 12 }} />
+              <Pill color='caution'>
+                Em análise
+              </Pill>
+              <View style={{ height: 12 }} />
+              <Pill color='info'>
+                Saúde
+              </Pill>
+              <View style={{ height: 12 }} />
+              <Pill color='warning'>
+                Em processamento
+              </Pill>
+            </>
+          )}
         </View>
       </ScrollView>
       <View style={{ ...styles.view, ...styles.border }}>
         <Text>Selecione um componente:</Text>
         <FlatList
           data={components}
+          style={{ marginVertical: 10, width: '100%' }}
           keyExtractor={(item) => item}
           renderItem={(props) => (
             <Pressable onPress={() => setComponent(props.item)}>
-              <Text>
+              <Text style={{ margin: 5 }}>
                 {component === props.item ? `[✓] ${props.item}` : props.item}
               </Text>
             </Pressable>

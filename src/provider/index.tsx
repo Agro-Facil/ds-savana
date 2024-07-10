@@ -33,6 +33,9 @@ export interface ITheme {
     warningLight?: HexadecimalType
     warning?: HexadecimalType
     warningDark?: HexadecimalType
+    cautionLight?: HexadecimalType
+    caution?: HexadecimalType
+    cautionDark?: HexadecimalType
     successLight?: HexadecimalType
     success?: HexadecimalType
     successDark?: HexadecimalType
@@ -81,6 +84,9 @@ export const defaultTheme = {
     warningLight: '#ffe0664a',
     warning: '#fdc416',
     warningDark: '#b6912d',
+    cautionLight: '#ffad6a4a',
+    caution: '#ffad6a',
+    cautionDark: '#cc8a54',
     successLight: '#75e17b4a',
     success: '#22c55e',
     successDark: '#1d9a41',
@@ -215,14 +221,14 @@ export const defaultTheme = {
     'md': 16,
     'lg': 18,
     'xl': 20,
-    '2xl': 24,
-    '3xl': 30,
-    '4xl': 36,
-    '5xl': 48,
-    '6xl': 60,
-    '7xl': 72,
-    '8xl': 96,
-    '9xl': 128,
+    '2xl': 22,
+    '3xl': 24,
+    '4xl': 26,
+    '5xl': 28,
+    '6xl': 30,
+    '7xl': 32,
+    '8xl': 34,
+    '9xl': 36,
   },
   opacity: {
     0: 0,

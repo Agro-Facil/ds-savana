@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- Rework Card Component
+
+### Added
+
+- Accordion Component
+- AccordionItem Component
+- Pill Component
+- New color caution
+- Text Component
+- Heading Component
+
 ## [1.5.2] - 2024-07-05
 
 ### Changed

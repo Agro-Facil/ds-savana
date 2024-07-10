@@ -1,8 +1,9 @@
 import React, { PropsWithChildren, useContext } from "react";
-import { Image, PressableProps, Pressable as RNPressable, StyleProp, Text, TextStyle, View, ViewStyle } from "react-native"
+import { Image, PressableProps, Pressable as RNPressable, StyleProp, TextStyle, View, ViewStyle } from "react-native"
 import { ButtonStyles, ButtonTextStyles } from "./styles"
-import { ContextTheme } from "../provider";
+import { ContextTheme } from "../../provider";
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
+import { Text } from './../text'
 
 export interface ButtonProps extends PressableProps {
   size?: 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'full'
@@ -34,7 +35,7 @@ export const Button = ({ size = 'full', variant = 'solid', icons, action = 'prim
         sx
       ]}
     >
-      {action === 'google' && <Image width={24} height={24} source={require('./../assets/google.png')} />}
+      {action === 'google' && <Image width={24} height={24} source={require('./../../assets/google.png')} />}
       {action === 'facebook' && <FontAwesome5 name="facebook" size={24} color={variant === 'outline' ? config.colors.paletteBlue : config.colors.white} />}
       {hasIcon && icons[0]}
       {children && (
