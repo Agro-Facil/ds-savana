@@ -29,9 +29,6 @@ export const TextFieldStyles = (theme: DefaultTheme | ITheme) => StyleSheet.crea
     position: 'absolute',
     right: theme.space[4]
   },
-  inputDisabled: {
-    backgroundColor: theme.colors.grayLight
-  },
   labelDisabled: {
     color: theme.colors.gray
   },
@@ -43,7 +40,8 @@ export const TextFieldStyles = (theme: DefaultTheme | ITheme) => StyleSheet.crea
   },
   hint: {
     color: theme.colors.gray,
-    marginTop: theme.space[2]
+    marginTop: theme.space[2],
+    marginBottom: theme.space[1]
   },
   hintInvalid: {
     color: theme.colors.error

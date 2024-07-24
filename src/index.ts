@@ -12,3 +12,4 @@ export { default as Heading } from './components/heading';
 export { default as AccordionItem } from './components/accordion/accordionItem';
 export { default as Accordion } from './components/accordion';
 export { default as SavanaProvider, default as ITheme } from './provider';
+export { default as useForm, IUseForm } from './hook/useForm';

@@ -99,22 +99,22 @@ export default function TabTwoScreen() {
           )}
           {component === 'TextField' && (
             <>
-              <TextField label='Nome' type='password' placeholder='teste' />
-              <TextField label='Nome' placeholder='teste' />
-              <TextField label='Nome' isDisabled placeholder='teste' />
-              <TextField label='Nome' isInvalid placeholder='teste' hint='Erro ao logar' />
-              <TextField label='Nome' placeholder='teste' hint='teste' />
+              <TextField name='teste1' label='Nome' type='password' placeholder='teste' />
+              <TextField name='teste2' label='Nome' placeholder='teste' />
+              <TextField name='teste3' label='Nome' isDisabled placeholder='teste' />
+              <TextField name='teste4' label='Nome' isInvalid placeholder='teste' hint='Erro ao logar' />
+              <TextField name='teste5' label='Nome' placeholder='teste' hint='teste' />
             </>
           )}
           {component === 'Checkbox' && (
             <>
-              <Checkbox defaultIsChecked={true} />
+              <Checkbox name='teste1' defaultIsChecked={true} />
               <View style={{ height: 12 }} />
-              <Checkbox label='teste' />
+              <Checkbox name='teste2' label='teste' />
               <View style={{ height: 12 }} />
-              <Checkbox label='teste' isDisabled hint='teste' />
+              <Checkbox name='teste3' label='teste' isDisabled hint='teste' />
               <View style={{ height: 12 }} />
-              <Checkbox label='teste' isInvalid hint='required' />
+              <Checkbox name='teste4' label='teste' isInvalid hint='required' />
             </>
           )}
           {component === 'Link' && (
