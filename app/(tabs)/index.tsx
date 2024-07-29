@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Pressable, View, StyleSheet, ScrollView, FlatList } from 'react-native';
+import { Pressable, View, StyleSheet, ScrollView, FlatList, StatusBar } from 'react-native';
 import { Heading, Text, Button, Card, TextField, Checkbox, Link, Pill, Divider, VStack, HStack, AccordionItem, Accordion } from '../../src/index'
 import { ChevronLeft, HomeIcon } from 'lucide-react-native';
 import { defaultTheme } from '../../src/provider';

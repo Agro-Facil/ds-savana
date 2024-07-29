@@ -1,12 +1,11 @@
 import React, { PropsWithChildren, useContext, useEffect, useState } from "react";
 import { ContextTheme } from "../../provider";
-import { CheckboxStyles } from "./styles";
-import { Pressable, View } from "react-native";
-import { Check } from "lucide-react-native";
+import { SwitchStyles } from "./styles";
+import { Pressable, Switch as RNSwitch, SwitchProps as RNSwitchProps, View } from "react-native";
 import { Text } from './../text'
 import { IUseForm, WithFormOptional, WithFormRequired } from "../../hook/useForm";
 
-export interface CheckboxBaseProps {
+export interface SwitchBaseProps extends Omit<RNSwitchProps, 'onChange'> {
   name: string
   form?: IUseForm
   label?: string
@@ -18,12 +17,12 @@ export interface CheckboxBaseProps {
   isRequired?: boolean
 }
 
-export type CheckboxProps = CheckboxBaseProps & (WithFormRequired | WithFormOptional);
+export type SwitchProps = SwitchBaseProps & (WithFormRequired | WithFormOptional);
 
-export const Checkbox = ({ defaultValue = false, isRequired, form, name, label, hint, onChange, isDisabled, isInvalid }: PropsWithChildren<CheckboxProps>): JSX.Element => {
+export const Switch = ({ defaultValue = false, isRequired, form, name, label, hint, onChange, isDisabled, isInvalid }: PropsWithChildren<SwitchProps>): JSX.Element => {
   const [value, setValue] = useState(form?.values[name] as boolean || defaultValue)
   const config = useContext(ContextTheme);
-  const styles = CheckboxStyles(config)
+  const styles = SwitchStyles(config)
 
   const handleChangeValue = () => {
     if (form) {
@@ -50,22 +49,13 @@ export const Checkbox = ({ defaultValue = false, isRequired, form, name, label, 
   return (
     <View style={{ width: '100%' }}>
       <Pressable style={styles.container} onPress={handleChangeValue}>
-        <Pressable
-          style={[
-            styles.checkbox,
-            isDisabled && styles.checkboxDisabled,
-            isInvalid && styles.checkboxInvalid
-          ]}
-          disabled={isDisabled}
-          onPress={handleChangeValue}
-        >
-          {value && (
-            <Check
-              color={(isInvalid || !!form?.errors[name]) ? config.colors.error : config.colors.secondary}
-              size={16}
-            />
-          )}
-        </Pressable>
+        <RNSwitch
+          trackColor={{ false: config.colors.grayLight, true: config.colors.secondaryLight }}
+          thumbColor={value ? config.colors.secondary : config.colors.light}
+          ios_backgroundColor={config.colors.grayDark}
+          onValueChange={handleChangeValue}
+          value={value}
+        />
         {label && (
           <Text
             style={[
@@ -91,4 +81,4 @@ export const Checkbox = ({ defaultValue = false, isRequired, form, name, label, 
   )
 }
 
-export default Checkbox
+export default Switch

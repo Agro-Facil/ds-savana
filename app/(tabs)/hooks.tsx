@@ -1,24 +1,70 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { Button, Checkbox, TextField, VStack, useForm } from '../../src/index'
+import { Button, Checkbox, Radio, RadioGroup, SelectField, Switch, TextField, useForm } from '../../src/index'
 import { defaultTheme } from '../../src/provider';
 
 export default function Hooks() {
-  const form = useForm();
+  const form = useForm({
+    category: {
+      label: 'teste',
+      value: 'teste'
+    },
+    name: 'teste1',
+    terms: true
+  });
 
   const onSubmit = () => {
     console.log(form.values);
   };
 
-
   return (
     <View style={styles.view}>
+      <SelectField
+        form={form}
+        label='Categoria'
+        name='category'
+        placeholder='Escolha sua categoria'
+        options={[
+          {
+            label: 'teste',
+            value: 'teste'
+          },
+          {
+            label: 'teste1',
+            value: 'teste1'
+          },
+          {
+            label: 'teste2',
+            value: 'teste2'
+          },
+          {
+            label: 'teste3',
+            value: 'teste3'
+          },
+        ]}
+      />
+      <RadioGroup
+        name='radio1'
+        form={form}
+      >
+        <Radio
+          label='teste'
+          name='teste'
+        />
+        <Radio
+          label='teste1'
+          name='teste1'
+        />
+        <Radio
+          label='teste2'
+          name='teste2'
+        />
+      </RadioGroup>
       <TextField
         form={form}
         name='name'
         label='Nome'
         placeholder='Nome'
-        isRequired
         onBlur={(value) => {
           return {
             validate: () => {
@@ -29,13 +75,12 @@ export default function Hooks() {
             }
           }
         }}
-      />
+      />{/*
       <TextField
         form={form}
         name='email'
         label='Email'
         placeholder='Email'
-        isRequired
         onBlur={(value) => {
           return {
             validate: () => {
@@ -52,7 +97,6 @@ export default function Hooks() {
         name='password'
         label='Senha'
         placeholder='Senha'
-        isRequired
         onChange={(value) => {
           if (form.values.confirmPassword === value) {
             form.clearError('confirmPassword')
@@ -73,7 +117,6 @@ export default function Hooks() {
         name='confirmPassword'
         label='Confirmar senha'
         placeholder='Confirme sua senha'
-        isRequired
         onChange={(value) => {
           return {
             validate: () => {
@@ -91,11 +134,14 @@ export default function Hooks() {
             }
           }
         }}
-      />
+      /> */}
       <Checkbox
         form={form}
         name='terms'
-        isRequired
+      />
+      <Switch
+        form={form}
+        name='terms2'
       />
       <Button sx={{ marginTop: defaultTheme.space[8] }} isDisabled={!form.isValid()} onPress={form.handleSubmit(onSubmit)}>
         Enviar

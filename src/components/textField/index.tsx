@@ -101,6 +101,8 @@ export const TextField = ({
     props.onChangeText?.(text);
   };
 
+  const value = form?.values[name] as string
+
   return (
     <View style={styles.container}>
       <Text
@@ -124,7 +126,8 @@ export const TextField = ({
           ]}
           onChangeText={handleChangeText}
           onEndEditing={handleEndEditing}
-          value={form?.values[name] as string ?? props.value}
+          value={value?.length > 0 ? value : props.value}
+          defaultValue={value?.length > 0 ? value : props.defaultValue}
         />
         {type === 'password' && (
           <Pressable style={styles.eye} onPress={() => setIsVisiblePassword(!isVisiblePassword)}>

@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { NativeSyntheticEvent } from 'react-native';
+import { SelectOption } from '../components/selectField';
 
 export type WithFormRequired = {
   isRequired: true;
@@ -11,7 +12,7 @@ export type WithFormOptional = {
   form?: IUseForm;
 };
 
-type Value = string | number | boolean | null | undefined
+type Value = string | number | boolean | SelectOption | null | undefined
 
 interface FormValues {
   [key: string]: Value;
@@ -21,11 +22,11 @@ interface Errors {
   [key: string]: string;
 }
 
-type HandleChange = (name: string, value: string | boolean) => void
+type HandleChange = (name: string, value: string | boolean | SelectOption | null) => void
 
 type HandleSubmit = (callback: () => void) => (event: NativeSyntheticEvent<any>) => void
 
-type RegisterField = (name: string, type?: Value) => void
+type RegisterField = (name: string, type?: Value, defaultValue?: Value) => void
 
 type RegisterRequired = (name: string, isRequired?: boolean) => void
 
@@ -104,7 +105,7 @@ const useForm = (defaultValues?: FormValues) => {
     }
   };
 
-  const registerField: RegisterField = (name, type) => {
+  const registerField: RegisterField = (name, type, defaultValue) => {
     if (!(name in values)) {
       const defaultValues = {
         'string': '',

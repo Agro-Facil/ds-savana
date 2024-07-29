@@ -1,4 +1,3 @@
-// AccordionItem.tsx
 import React, { PropsWithChildren, useContext, useState, useRef, useEffect } from "react";
 import { Pressable as RNPressable, View, Animated } from "react-native";
 import { AccordionItemStyles } from "./styles";

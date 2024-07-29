@@ -76,7 +76,7 @@ export const defaultTheme = {
     tertiary: '#b7c0bc',
     tertiaryDark: '#8b928f',
     grayLight: '#b1b1b1',
-    gray: '#686763',
+    gray: '#828282',
     grayDark: '#4F4F4F',
     errorLight: '#ffadad4a',
     error: '#D84848',

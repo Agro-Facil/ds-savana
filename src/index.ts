@@ -1,6 +1,8 @@
 export { default as Button } from './components/button';
 export { default as TextField } from './components/textField';
+export { default as SelectField } from './components/selectField';
 export { default as Checkbox } from './components/checkbox';
+export { default as Switch } from './components/switch';
 export { default as Card } from './components/card';
 export { default as Link } from './components/link';
 export { default as VStack } from './components/vstack';
@@ -11,5 +13,7 @@ export { default as Text, TextProps } from './components/text';
 export { default as Heading } from './components/heading';
 export { default as AccordionItem } from './components/accordion/accordionItem';
 export { default as Accordion } from './components/accordion';
+export { default as Radio } from './components/radioGroup/radio';
+export { default as RadioGroup } from './components/radioGroup';
 export { default as SavanaProvider, default as ITheme } from './provider';
 export { default as useForm, IUseForm } from './hook/useForm';

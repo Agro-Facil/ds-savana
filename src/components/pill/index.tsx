@@ -1,7 +1,7 @@
 import React, { PropsWithChildren, useContext } from "react";
 import { ContextTheme } from "../../provider";
 import { PillStyles } from "./styles";
-import { Text } from "./../text";
+import { Text } from "../text";
 
 interface PillProps {
   color?: 'warning' | 'caution' | 'success' | 'error' | 'info'

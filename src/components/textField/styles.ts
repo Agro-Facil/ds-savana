@@ -7,7 +7,8 @@ export const TextFieldStyles = (theme: DefaultTheme | ITheme) => StyleSheet.crea
     width: theme.space.full
   },
   label: {
-    color: theme.colors.gray,
+    fontFamily: theme.fonts.body,
+    color: theme.colors.secondary,
     fontWeight: theme.fontWeights.medium
   },
   input: {
@@ -39,6 +40,7 @@ export const TextFieldStyles = (theme: DefaultTheme | ITheme) => StyleSheet.crea
     borderColor: theme.colors.error
   },
   hint: {
+    fontFamily: theme.fonts.body,
     color: theme.colors.gray,
     marginTop: theme.space[2],
     marginBottom: theme.space[1]
