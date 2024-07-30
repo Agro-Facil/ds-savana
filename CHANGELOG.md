@@ -7,13 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Radio Component
+- RadioGroup Component
+- Actionsheet Component
+- Switch Component
+- SelectField Component
+
+### Fixed
+- Adjusting defaultValue in hook useForm
+
 ## [1.6.0] - 2024-07-24
 
 ### Changed
 - Rework Card Component
 
 ### Added
-
 - Accordion Component
 - AccordionItem Component
 - Pill Component

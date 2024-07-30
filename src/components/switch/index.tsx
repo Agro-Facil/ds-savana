@@ -26,14 +26,14 @@ export const Switch = ({ defaultValue = false, isRequired, form, name, label, hi
 
   const handleChangeValue = () => {
     if (form) {
-      form.handleChange(name, value)
+      form.handleChange(name, !value)
     }
 
     if (onChange) {
-      onChange(value)
+      onChange(!value)
     }
 
-    setValue(value)
+    setValue(!value)
   }
 
   useEffect(() => {

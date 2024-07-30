@@ -35,6 +35,7 @@ export const RadioGroup = ({ name, children, onChange, isRequired, defaultValue,
       if (React.isValidElement(firstChild) && firstChild.props.name) {
         const firstValue = firstChild.props.name;
         onValueChange(firstValue);
+        form?.handleChange(name, firstValue)
       }
     }
   }, []);

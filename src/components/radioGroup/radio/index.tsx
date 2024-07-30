@@ -37,7 +37,7 @@ export const Radio = ({ label, name, hint, isDisabled, isInvalid }: RadioProps):
         context?.form.handleChange(context?.name, defaultValue)
       }
     }
-  }, [defaultValue])
+  }, [])
 
   const handleChangeValue = () => {
     if (context?.form) {
