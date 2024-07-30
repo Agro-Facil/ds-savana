@@ -17,8 +17,8 @@ export interface ButtonProps extends PressableProps {
 
 export const Button = ({ size = 'full', variant = 'solid', icons, action = 'primary', sx, childrenSx, isDisabled, children, ...props }: PropsWithChildren<ButtonProps>): JSX.Element => {
   const config = useContext(ContextTheme);
-  const styles = ButtonStyles(config)
-  const textStyles = ButtonTextStyles(config)
+  const styles = ButtonStyles/* (config) */
+  const textStyles = ButtonTextStyles/* (config) */
   const hasIcon = (action !== 'facebook' && action !== 'google') && icons
 
   return (
@@ -26,6 +26,9 @@ export const Button = ({ size = 'full', variant = 'solid', icons, action = 'prim
       {...props}
       disabled={isDisabled}
       style={[
+        {
+          borderWidth: 1, borderColor: 'green'
+        },
         styles.container,
         styles[size],
         styles[`${variant}-${action}` as keyof typeof styles],
@@ -41,6 +44,11 @@ export const Button = ({ size = 'full', variant = 'solid', icons, action = 'prim
       {children && (
         <Text
           style={[
+            !icons &&
+            action !== 'google' &&
+            action !== 'facebook' && {
+              width: config.space.full
+            },
             textStyles.text,
             textStyles[`${variant}-${action}` as keyof typeof textStyles],
             childrenSx

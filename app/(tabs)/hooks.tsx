@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { Button, Checkbox, Radio, RadioGroup, SelectField, Switch, TextField, useForm } from '../../src/index'
+import { Button, Checkbox, Fab, Radio, RadioGroup, SelectField, Switch, TextField, Upload, useForm } from '../../src/index'
 import { defaultTheme } from '../../src/provider';
 
 export default function Hooks() {
@@ -18,7 +18,7 @@ export default function Hooks() {
   };
 
   return (
-    <View style={styles.view}>
+    <View style={styles.view}>{/*
       <SelectField
         form={form}
         label='Categoria'
@@ -75,7 +75,7 @@ export default function Hooks() {
             }
           }
         }}
-      />{/*
+      />
       <TextField
         form={form}
         name='email'
@@ -134,7 +134,7 @@ export default function Hooks() {
             }
           }
         }}
-      /> */}
+      />
       <Checkbox
         form={form}
         name='terms'
@@ -146,6 +146,11 @@ export default function Hooks() {
       <Button sx={{ marginTop: defaultTheme.space[8] }} isDisabled={!form.isValid()} onPress={form.handleSubmit(onSubmit)}>
         Enviar
       </Button>
+      */}
+      <Upload type='file' />{/*
+      <Upload type='file' />
+      <Upload type='photo' /> */}
+      <Fab />
     </View>
   );
 }
