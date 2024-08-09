@@ -37,7 +37,7 @@ Depois de instalar, você pode começar a usar os componentes do design system e
 #### Exemplo
 
 ```jsx
-import { Button } from 'savana-design-system';
+import { Button } from '@savana-tech/ui';
 
 const App = () => (
   <div>

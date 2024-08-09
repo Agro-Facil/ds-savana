@@ -1,7 +1,8 @@
 import { ReactNode, createContext } from 'react';
 import { AnimatableNumericValue, DimensionValue, TextStyle } from 'react-native';
+import { ToastProvider } from '../hook/useToast';
 
-type HexadecimalType = `#${string}`
+type HexadecimalType = `#${string}` | string
 
 type Percentage = `${number}%`
 
@@ -278,7 +279,9 @@ export const SavanaProvider: React.FC<{ config?: Partial<ITheme>; children: Reac
 
   return (
     <ContextTheme.Provider value={currentTheme}>
-      {children}
+      <ToastProvider theme={currentTheme}>
+        {children}
+      </ToastProvider>
     </ContextTheme.Provider>
   );
 };

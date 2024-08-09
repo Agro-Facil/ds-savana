@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { ContextTheme } from "../../provider";
 import * as ImagePicker from 'expo-image-picker';
 import * as DocumentPicker from 'expo-document-picker';
@@ -7,15 +7,15 @@ import Button from "../button";
 import { UploadIcon } from "lucide-react-native";
 
 export interface UploadProps {
-  type?: 'file' | 'image' | 'photo'
+  type?: 'file' | 'image' | 'photo' | 'video'
   label?: string
+  onSave?: (result: ImagePicker.ImagePickerAsset | DocumentPicker.DocumentPickerAsset) => void
 }
 
-export const Upload = ({ type = 'image', label, ...props }: PropsWithChildren<UploadProps>): JSX.Element => {
+export const Upload = ({ type = 'image', label, onSave }: UploadProps): JSX.Element => {
   const config = useContext(ContextTheme);
   const [permissionCamera, setPermissionCamera] = useState<boolean>(false);
   const [permissionImage, setPermissionImage] = useState<boolean>(false);
-  const [image, setImage] = useState<ImagePicker.ImagePickerAsset | null>(null);
 
   const getCamPermission = async () => {
     const cameraPermission = await ImagePicker.requestCameraPermissionsAsync();
@@ -30,7 +30,7 @@ export const Upload = ({ type = 'image', label, ...props }: PropsWithChildren<Up
   useEffect(() => {
     (async () => {
       (type === 'photo' && await getCamPermission());
-      (type === 'image' && await getGalleryPermission());
+      ((type === 'image' || type === 'video') && await getGalleryPermission());
     })();
   }, []);
 
@@ -54,16 +54,22 @@ export const Upload = ({ type = 'image', label, ...props }: PropsWithChildren<Up
           ]
         );
       } else {
+        let mediaTypes = ImagePicker.MediaTypeOptions.Images
+
+        if (type === 'video') {
+          mediaTypes = ImagePicker.MediaTypeOptions.Videos
+        }
+
         const result = await ImagePicker.launchImageLibraryAsync({
-          mediaTypes: ImagePicker.MediaTypeOptions.Images,
+          mediaTypes,
           allowsEditing: true,
           aspect: [1, 1],
-          base64: true,
           quality: 0.6,
           exif: false,
         });
+
         if (!result.canceled && result.assets[0]) {
-          setImage(result.assets[0]);
+          onSave?.(result.assets[0]);
         }
       }
     } catch (error) {
@@ -74,7 +80,9 @@ export const Upload = ({ type = 'image', label, ...props }: PropsWithChildren<Up
   const pickDocument = async () => {
     try {
       const result = await DocumentPicker.getDocumentAsync();
-      console.log(result)
+      if (!result.canceled && result.assets[0]) {
+        onSave?.(result.assets[0]);
+      }
     } catch (error) {
       console.error(error);
     }
@@ -109,7 +117,7 @@ export const Upload = ({ type = 'image', label, ...props }: PropsWithChildren<Up
           exif: false,
         });
         if (!result.canceled && result.assets[0]) {
-          setImage(result.assets[0]);
+          onSave?.(result.assets[0]);
         }
       }
     } catch (error) {
@@ -121,8 +129,9 @@ export const Upload = ({ type = 'image', label, ...props }: PropsWithChildren<Up
     if (label) return label
 
     const labels = {
-      image: 'Adicionar imagem',
-      file: 'Adicionar arquivo',
+      image: 'Anexar imagem',
+      file: 'Anexar arquivo',
+      video: 'Anexar video',
       photo: 'Tirar foto'
     }
 
@@ -132,6 +141,7 @@ export const Upload = ({ type = 'image', label, ...props }: PropsWithChildren<Up
   const handleUpload = () => {
     return {
       image: pickImage,
+      video: pickImage,
       file: pickDocument,
       photo: takePhoto
     }

@@ -30,6 +30,22 @@ export const TextFieldStyles = (theme: DefaultTheme | ITheme) => StyleSheet.crea
     position: 'absolute',
     right: theme.space[4]
   },
+  iconLeft: {
+    justifyContent: 'center',
+    paddingHorizontal: theme.space[2],
+    height: theme.space.full,
+    position: 'absolute',
+    zIndex: 1,
+    left: theme.space[4]
+  },
+  iconRight: {
+    justifyContent: 'center',
+    paddingHorizontal: theme.space[2],
+    height: theme.space.full,
+    position: 'absolute',
+    zIndex: 1,
+    right: theme.space[4]
+  },
   labelDisabled: {
     color: theme.colors.gray
   },

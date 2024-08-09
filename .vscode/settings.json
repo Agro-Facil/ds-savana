@@ -4,6 +4,7 @@
     "facebook",
     "Ionicons",
     "Pressable",
-    "splitted"
+    "splitted",
+    "Swipeable"
   ]
 }

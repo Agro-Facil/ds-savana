@@ -12,6 +12,7 @@ export interface TextFieldBaseProps extends Omit<TextInputProps, 'onChange' | 'o
   label?: string;
   type?: 'text' | 'password';
   hint?: string;
+  icons?: (React.ReactNode | null)[];
   isDisabled?: boolean;
   isInvalid?: boolean;
   onChange?: (text: string) => FieldRules | void;
@@ -61,6 +62,7 @@ export const TextField = ({
   onChange,
   onBlur,
   children,
+  icons,
   ...props
 }: PropsWithChildren<TextFieldProps>): JSX.Element => {
   const [isVisiblePassword, setIsVisiblePassword] = useState(false);
@@ -113,6 +115,11 @@ export const TextField = ({
         {isRequired && <Text style={{ color: config.colors.error }}> *</Text>}
       </Text>
       <View style={styles.containerInput}>
+        {icons && icons?.length > 0 && (
+          <View style={styles.iconLeft}>
+            {icons?.[0]}
+          </View>
+        )}
         <RNTextInput
           {...props}
           ref={inputRef}
@@ -123,12 +130,19 @@ export const TextField = ({
           style={[
             styles.input,
             (isInvalid || !!form?.errors[name]) && styles.inputInvalid,
+            icons && icons?.length > 0 && { paddingLeft: config.space[24] },
+            icons && icons?.length > 1 && { paddingRight: config.space[24] }
           ]}
           onChangeText={handleChangeText}
           onEndEditing={handleEndEditing}
           value={value?.length > 0 ? value : props.value}
           defaultValue={value?.length > 0 ? value : props.defaultValue}
         />
+        {type !== 'password' && icons && icons?.length > 1 && (
+          <View style={styles.iconRight}>
+            {icons?.[1]}
+          </View>
+        )}
         {type === 'password' && (
           <Pressable style={styles.eye} onPress={() => setIsVisiblePassword(!isVisiblePassword)}>
             {isVisiblePassword ? <Eye color={config.colors.dark} /> : <EyeOff color={config.colors.dark} />}

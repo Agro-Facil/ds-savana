@@ -14,11 +14,12 @@ export const Heading = ({ children, size = 'md', ...props }: PropsWithChildren<H
 
   return (
     <RNText
+      {...props}
       style={[
         styles.text,
-        styles[`size-${size}`]
+        styles[`size-${size}`],
+        props.style
       ]}
-      {...props}
     >
       {children}
     </RNText>

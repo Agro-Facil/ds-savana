@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Pressable, View, StyleSheet, ScrollView, FlatList, StatusBar } from 'react-native';
-import { Heading, Text, Button, Card, TextField, Checkbox, Link, Pill, Divider, VStack, HStack, AccordionItem, Accordion } from '../../src/index'
+import { Heading, Text, Button, Card, TextField, Checkbox, Link, Pill, Divider, VStack, HStack, AccordionItem, Accordion, Step, StepItem } from '../../src/index'
 import { ChevronLeft, HomeIcon } from 'lucide-react-native';
 import { defaultTheme } from '../../src/provider';
 
@@ -18,8 +18,10 @@ export default function TabTwoScreen() {
     'Accordion',
     'Text',
     'Heading',
-    'Pill'
+    'Pill',
+    'Step'
   ]
+
   const [component, setComponent] = useState('Button')
 
   return (
@@ -94,6 +96,8 @@ export default function TabTwoScreen() {
             <View style={{ height: 500, width: 400, backgroundColor: 'gray' }}>
               <Card>
                 <Text>teste</Text>
+                <Text>teste</Text>
+                <Text>teste</Text>
               </Card>
             </View>
           )}
@@ -108,7 +112,7 @@ export default function TabTwoScreen() {
           )}
           {component === 'Checkbox' && (
             <>
-              <Checkbox name='teste1' defaultIsChecked={true} />
+              <Checkbox name='teste1' defaultValue={true} />
               <View style={{ height: 12 }} />
               <Checkbox name='teste2' label='teste' />
               <View style={{ height: 12 }} />
@@ -241,6 +245,43 @@ export default function TabTwoScreen() {
               <Pill color='warning'>
                 Em processamento
               </Pill>
+            </>
+          )}
+          {component === 'Step' && (
+            <>
+              <Step active={3}>
+                <StepItem
+                  title='Recebido'
+                >
+                  <Text>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in faucibus massa. Aenean eu nisi quam. Donec quis eros vel est mattis convallis. Suspendisse tempor ex eget pharetra aliquet. Cras dignissim sed dui non dictum. Aliquam elit libero, sagittis at accumsan non, eleifend id ex. Curabitur ut erat et risus scelerisque bibendum. Maecenas eleifend tortor eget augue auctor, sit amet rhoncus dui sagittis. Nullam id libero euismod, euismod odio ac, vehicula purus. Vivamus rhoncus purus auctor, maximus ligula quis, mattis lacus.
+                  </Text>
+                </StepItem>
+                <StepItem
+                  title='Em análise'
+                >
+                  <Text>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in faucibus massa. Aenean eu nisi quam. Donec quis eros vel est mattis convallis. Suspendisse tempor ex eget pharetra aliquet. Cras dignissim sed dui non dictum. Aliquam elit libero, sagittis at accumsan non, eleifend id ex. Curabitur ut erat et risus scelerisque bibendum. Maecenas eleifend tortor eget augue auctor, sit amet rhoncus dui sagittis. Nullam id libero euismod, euismod odio ac, vehicula purus. Vivamus rhoncus purus auctor, maximus ligula quis, mattis lacus.
+                  </Text>
+                </StepItem>
+                <StepItem
+                  title='Em andamento'
+                >
+                  <Text>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in faucibus massa. Aenean eu nisi quam. Donec quis eros vel est mattis convallis. Suspendisse tempor ex eget pharetra aliquet. Cras dignissim sed dui non dictum. Aliquam elit libero, sagittis at accumsan non, eleifend id ex. Curabitur ut erat et risus scelerisque bibendum. Maecenas eleifend tortor eget augue auctor, sit amet rhoncus dui sagittis. Nullam id libero euismod, euismod odio ac, vehicula purus. Vivamus rhoncus purus auctor, maximus ligula quis, mattis lacus.
+                  </Text>
+                </StepItem>
+                <StepItem
+                  title='Em processo de resolução'
+                >
+                  <Text>
+                    Lorem ipsum dolor sit amet
+                  </Text>
+                </StepItem>
+                <StepItem
+                  title='Cancelado'
+                />
+              </Step>
             </>
           )}
         </View>

@@ -7,7 +7,7 @@ export const CardStyles = (config: ITheme) => StyleSheet.create({
     borderRadius: config.radii.lg,
     paddingVertical: config.space[20],
     paddingHorizontal: config.space[10],
-    margin: config.space[6],
+    margin: config.space[6]
   },
   shadowProp: {
     elevation: 20,
@@ -19,5 +19,4 @@ export const CardStyles = (config: ITheme) => StyleSheet.create({
     shadowOpacity: 1,
     shadowRadius: config.radii['2xl'] as number,
   },
-
 });

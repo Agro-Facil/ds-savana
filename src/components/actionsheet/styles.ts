@@ -24,7 +24,7 @@ export const ActionSheetStyles = (theme: DefaultTheme | ITheme) => StyleSheet.cr
     backgroundColor: theme.colors.white,
     borderTopLeftRadius: theme.space[12] as number,
     borderTopRightRadius: theme.space[12] as number,
-    padding: theme.space[6],
+    padding: theme.space[6]
   },
   dragIndicator: {
     marginVertical: theme.space[6],
